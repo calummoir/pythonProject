@@ -1,0 +1,6 @@
+my_name = input('what is your name: ')
+file = open('e:\\data\\name2.txt', mode='w')
+file.write(my_name)
+file.close()
+file = open('e:\\data\\name2.txt', mode='r')
+file.read()
