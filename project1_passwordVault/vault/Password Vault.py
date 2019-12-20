@@ -27,7 +27,7 @@ def saveInfo():
     email_info = email.get()
     password_info = password.get()
 
-    file=open(email_info+".txt", "w")
+    file=open(email_info+".pwd", "w")
     file.write(email_info)
     file.write("\n")
     file.write(password_info)
