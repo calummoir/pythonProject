@@ -57,13 +57,22 @@ def failInfo():
 def successInfo():
     encrypt_info = encryptVar.get()
     if password_info == "":
-        file=open(email_info+".txt", "r", encoding="utf-8")
+        file=open(email_info+".pwd", "r", encoding="utf-8")
         content = file.readlines()
-        print (encode(encrypt_info, content[1], "d"))
+        button.config(state="disabled")
+        yourIs = Label(text = "Your password is:")
+        yourIs.pack()
+        passwordIs = Label(text = (encode(encrypt_info, content[1], "d")), fg = "blue")
+        passwordIs.pack()
+        screen.update()
+        time.sleep(3)
+        passwordIs.destroy()
+        yourIs.destroy()
+        button.config(state="normal")
 
     else:
         encrypted_password = encode(encrypt_info, password_info, "e")
-        file=open(email_info+".txt", "w", encoding="utf-8")
+        file=open(email_info+".pwd", "w", encoding="utf-8")
         file.write(email_info)
         file.write("\n")
         file.write(encrypted_password)
